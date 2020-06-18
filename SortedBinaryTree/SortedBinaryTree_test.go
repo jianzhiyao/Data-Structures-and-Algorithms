@@ -2,10 +2,11 @@ package SortedBinaryTree
 
 import (
 	"math/rand"
+	"reflect"
 	"testing"
 )
 
-func TestBinaryTree_InsertItem(t *testing.T) {
+func TestBinaryTree_InsertItemAndSearchItem(t *testing.T) {
 	tree := SortedBinaryTree{
 		root: &Node{
 			data:  rand.Int(),
@@ -28,3 +29,18 @@ func TestBinaryTree_InsertItem(t *testing.T) {
 		}
 	}
 }
+
+func TestSortedBinaryTree_GetRoot(t *testing.T) {
+	node := Node{
+		data: rand.Int(),
+	}
+	tree := SortedBinaryTree{
+		root: &node,
+	}
+
+	if tree.GetRoot().data != node.data {
+		t.Fatal(reflect.DeepEqual(tree.GetRoot(), node))
+	}
+}
+
+
